@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Examen Final</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1><i class="fas fa-university"></i> Examen Final</h1>
+      <div class="header-controls">
+        <select id="filtro" class="filtro-select">
+          <option value="todos">Mostrar Todos</option>
+          <option value="carrera">Carreras</option>
+          <option value="notas">Notas</option>
+          <option value="semestre">Semestres</option>
+          <option value="rendimiento">Rendimiento</option>
+        </select>
+        <button id="theme-toggle" class="theme-toggle">
+          <i class="fas fa-moon"></i> Modo Oscuro
+        </button>
+      </div>
+    </header>
+
+    <!-- Gráficos -->
+    <section class="charts-section">
+      <div class="chart-card" data-type="carrera">
+        <h2><i class="fas fa-chart-pie"></i> Estudiantes por Carrera</h2>
+        <p class="chart-description">Distribución de estudiantes según la carrera elegida.</p>
+        <canvas id="carreraChart"></canvas>
+      </div>
+
+      <div class="chart-card" data-type="notas">
+        <h2><i class="fas fa-chart-bar"></i> Promedio de Notas por Curso</h2>
+        <p class="chart-description">Muestra la nota promedio obtenida por curso.</p>
+        <canvas id="promedioNotasChart"></canvas>
+      </div>
+
+      <div class="chart-card" data-type="semestre">
+        <h2><i class="fas fa-chart-doughnut"></i> Distribución por Semestre</h2>
+        <p class="chart-description">Cantidad de estudiantes inscritos en cada semestre.</p>
+        <canvas id="semestreChart"></canvas>
+      </div>
+
+      <div class="chart-card" data-type="rendimiento">
+        <h2><i class="fas fa-chart-line"></i> Rendimiento Académico</h2>
+        <p class="chart-description">Evolución del rendimiento académico por curso.</p>
+        <canvas id="rendimientoChart"></canvas>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
